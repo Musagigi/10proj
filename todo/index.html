@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
+	<script src="https://unpkg.com/vue@next" defer></script>
+	<script src="./main.js" defer></script>
+	<title>todo </title>
+</head>
+<body class="body" id="app">
+	<wrapper class="wrapper ">
+		<header class="header">
+			<h1 class="head__title">
+				Список дел
+			</h1>
+		</header>
+
+		<main class="main">
+			<ul class="main__list" >
+				<li v-for="item in list" class="list__item">
+					{{ item }}
+				</li>
+			</ul>
+		</main>
+
+		<footer class="footer">
+			<input 
+				v-model="enterText" 
+				@keypress.enter="addText"
+				class="inp__text"
+				type="text" 
+				placeholder="введите текст..."
+			/>
+			<button @click="addText" class="btn__text" >добавить</button>
+		</footer>
+	</wrapper>
+</body>
+</html>
