@@ -30,10 +30,12 @@ body {
 	margin-bottom: 20px;
 	text-align: center;
 	letter-spacing: 5px;
-	box-shadow: 0px 0px 15px rgb(255, 0, 225, 0.5);
+	border-radius: 5px;
+	box-shadow: 0px 0px 35px rgb(255, 0, 225, 0.5);
 }
 .head__title {
 	color: rgb(255, 255, 255);
+	text-shadow: 0px 0px 15px rgb(255, 0, 255);
 	padding-top: 5px;
 }
 /* END HEAD */

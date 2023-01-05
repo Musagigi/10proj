@@ -5,9 +5,10 @@ const App = {
 			enterText: '',
 		}
 	},
+	
 	methods: {
 		addText() {
-			this.list.push(this.enterText)
+			if (this.enterText) this.list.push(this.enterText)
 			this.enterText = ''
 		},
 	}
