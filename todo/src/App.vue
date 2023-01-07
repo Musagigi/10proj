@@ -5,37 +5,34 @@
         <h1 class="head__title">Список дел</h1>
       </header>
 
-      <main class="main" v-if="list.length >= 1 ? brdColor : ''">
-        <ul class="main__list">
-          <li v-for="(item, index) in list" :key="item.id" class="list__item">
-            {{ item }} {{ index }}
-          </li>
-        </ul>
-      </main>
+      <main-list :addNote="list" />
 
       <footer class="footer">
         <input
-          v-model="enterText"
-          @keypress.enter="addText"
           class="inp__text"
           type="text"
           placeholder="введите текст..."
+          v-model="enterText"
+          @keypress.enter="addText"
         />
-        <button @click="addText" class="btn__text">добавить</button>
+        <button class="btn__text" @click="addText">добавить</button>
       </footer>
     </section>
   </wrapper>
 </template>
 
 <script>
+import mainList from "./components/main-list.vue";
+
 export default {
+  components: {
+    mainList,
+  },
+
   data() {
     return {
       list: [],
       enterText: "",
-      brdColor: {
-        border: "2px dashed rgb(255, 255, 255)",
-      },
     };
   },
 
@@ -83,27 +80,6 @@ export default {
   padding-top: 10px;
 }
 /* END HEAD */
-
-/* START MAIN */
-.main {
-  min-height: 400px;
-  min-width: 300px;
-  margin-bottom: 20px;
-  border: 2px dashed rgb(255, 255, 255);
-  transition: 0.3s;
-}
-.main:hover {
-  border: 2px dashed rgb(255, 0, 225);
-}
-.main__list {
-  list-style-type: none;
-}
-.list__item {
-  margin: 10px;
-  font-size: 24px;
-  color: rgb(255, 255, 255);
-}
-/* END MAIN */
 
 /* START FOOT */
 .footer {
