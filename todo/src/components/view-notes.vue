@@ -1,19 +1,18 @@
 <template>
   <main class="main">
-    <ul class="main__list">
-      <li class="list__item" v-for="item in addNote" :key="item.index">
-        {{ item }}
-      </li>
-    </ul>
+    <li class="items" v-for="(item, index) in viewNote" :key="index">
+      <div class="item">{{ index + 1 }} {{ item }}</div>
+      <button class="item-btn" @click="$emit('delNote', index)">Удал</button>
+    </li>
   </main>
 </template>
 
 <script>
 export default {
-  name: "main-list",
+  name: "view-notes",
   props: {
-    addNote: {
-      type: String,
+    viewNote: {
+      type: Array,
       required: true,
     },
   },
@@ -32,12 +31,14 @@ export default {
   border: 2px dashed rgb(255, 0, 225);
 }
 
-.main__list {
-  list-style-type: none;
+.items {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
 }
 
-.list__item {
-  margin: 10px;
+.item {
+  list-style-type: none;
   font-size: 24px;
   color: rgb(255, 255, 255);
 }
